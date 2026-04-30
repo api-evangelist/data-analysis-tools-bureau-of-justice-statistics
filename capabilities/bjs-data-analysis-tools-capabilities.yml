@@ -1,0 +1,43 @@
+name: BJS Data Analysis Tools Capabilities
+description: >-
+  Capabilities exposed by the Bureau of Justice Statistics through its
+  Socrata-backed dataset APIs (NCVS and NIBRS National Estimates) and
+  JEET-style interactive data visualisation tools.
+capabilities:
+  - name: Query NCVS Datasets
+    description: Run SoQL queries against National Crime Victimization Survey datasets.
+    operationId: getNcvsDatasetJson
+    method: GET
+    path: /resource/{datasetId}.json
+  - name: Download NCVS Datasets as CSV
+    description: Bulk download NCVS rows as CSV for offline analysis.
+    operationId: getNcvsDatasetCsv
+    method: GET
+    path: /resource/{datasetId}.csv
+  - name: Query NIBRS National Estimates
+    description: Run SoQL queries against NIBRS national-estimates datasets.
+    operationId: getNibrsDatasetJson
+    method: GET
+    path: /resource/{datasetId}.json
+  - name: Download NIBRS National Estimates as CSV
+    description: Bulk download NIBRS national-estimates rows as CSV.
+    operationId: getNibrsDatasetCsv
+    method: GET
+    path: /resource/{datasetId}.csv
+use_cases:
+  - name: Researcher data extraction
+    description: >-
+      Extract victimisation and incident-based estimates for academic and
+      policy research using SoQL filters.
+  - name: Justice expenditure analytics
+    description: >-
+      Combine BJS expenditure and employment datasets to analyse government
+      spending on the criminal justice system.
+  - name: Civic data journalism
+    description: >-
+      Pull NCVS and NIBRS rows into newsroom dashboards with $select and
+      $where to focus on specific offences or demographics.
+  - name: Open-government dashboards
+    description: >-
+      Embed crime trend charts in third-party portals using SODA-backed JSON
+      and CSV downloads.

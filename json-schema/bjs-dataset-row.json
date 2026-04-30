@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/data-analysis-tools-bureau-of-justice-statistics/refs/heads/main/json-schema/bjs-dataset-row.json",
+  "title": "BJSDatasetRow",
+  "description": "A single row returned by a BJS Socrata-backed dataset (NCVS or NIBRS National Estimates). Field names and types vary per dataset; common metadata fields are described below.",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "string",
+      "description": "Survey or reporting year associated with the row."
+    },
+    "estimate": {
+      "type": "string",
+      "description": "Numeric estimate as published by BJS, returned as a string."
+    },
+    "standard_error": {
+      "type": "string",
+      "description": "Standard error of the estimate where applicable."
+    },
+    "category": {
+      "type": "string",
+      "description": "Category, demographic, or offense grouping for the estimate."
+    }
+  },
+  "additionalProperties": true
+}

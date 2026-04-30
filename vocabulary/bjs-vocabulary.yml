@@ -1,0 +1,36 @@
+name: BJS Data Analysis Tools Vocabulary
+description: >-
+  Vocabulary of terms used by the Bureau of Justice Statistics data analysis
+  tools and SODA-based dataset APIs.
+terms:
+  - term: NCVS
+    definition: >-
+      National Crime Victimization Survey - the primary BJS source of
+      victimisation statistics from a household sample.
+  - term: NIBRS
+    definition: >-
+      National Incident-Based Reporting System - incident-level reporting from
+      law-enforcement agencies, used to produce national estimates.
+  - term: Dataset
+    definition: >-
+      A Socrata resource published by BJS, identified by a four-character
+      resource code such as gcuy-rt5g.
+  - term: Resource Code
+    definition: >-
+      The Socrata four-character identifier appended to /resource/ to access
+      a particular dataset.
+  - term: SoQL
+    definition: >-
+      Socrata Query Language - the SQL-like dialect used in $select, $where,
+      $group, $order, and $having parameters.
+  - term: Estimate
+    definition: >-
+      A statistical estimate published by BJS such as victimisation rate,
+      offence count, or expenditure value.
+  - term: JEET
+    definition: >-
+      The Justice Expenditure and Employment Tool, BJS's interactive data
+      visualisation product backed by underlying datasets.
+  - term: App Token
+    definition: >-
+      Optional Socrata application token that increases API rate limits.

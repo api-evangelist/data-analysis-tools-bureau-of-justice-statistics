@@ -1,0 +1,16 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.bjs.ojp.gov/",
+    "schema": "https://schema.org/",
+    "bjs": "https://schema.bjs.ojp.gov/",
+    "Dataset": "schema:Dataset",
+    "Estimate": "bjs:Estimate",
+    "Observation": "schema:Observation",
+    "year": {"@id": "schema:temporalCoverage", "@type": "schema:Text"},
+    "estimate": {"@id": "schema:value", "@type": "schema:Text"},
+    "standard_error": {"@id": "bjs:standardError", "@type": "schema:Text"},
+    "category": {"@id": "schema:category", "@type": "schema:Text"},
+    "datasetId": {"@id": "schema:identifier", "@type": "schema:Text"}
+  }
+}

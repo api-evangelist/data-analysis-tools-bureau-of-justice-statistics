@@ -1,0 +1,39 @@
+extends:
+  - spectral:oas
+rules:
+  bjs-info-contact:
+    description: API info should include a contact for the Bureau of Justice Statistics.
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  bjs-server-base:
+    description: Servers should reference the api.ojp.gov BJS dataset base URL.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "api\\.ojp\\.gov/bjsdataset"
+  bjs-soda-query-params:
+    description: Endpoints should expose Socrata $select, $where, $limit query parameters.
+    given: $.paths[*].get
+    severity: warn
+    then:
+      field: parameters
+      function: truthy
+  bjs-dataset-id-pattern:
+    description: datasetId path parameter must follow the four-and-four Socrata code pattern.
+    given: $.paths[*].get.parameters[?(@.name == 'datasetId')].schema
+    severity: error
+    then:
+      field: pattern
+      function: truthy
+  bjs-app-token-scheme:
+    description: API should declare the optional X-App-Token security scheme.
+    given: $.components.securitySchemes
+    severity: warn
+    then:
+      field: appToken
+      function: truthy
