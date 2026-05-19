@@ -1,0 +1,152 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: BJS NIBRS National Estimates API — NIBRS
+  description: 'BJS NIBRS National Estimates API — NIBRS. 2 operations. Lead operation: Get NIBRS dataset as CSV. Self-contained
+    Naftiko capability covering one Data Analysis Tools Bureau Of Justice Statistics business surface.'
+  tags:
+  - Data Analysis Tools Bureau Of Justice Statistics
+  - NIBRS
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    DATA_ANALYSIS_TOOLS_BUREAU_OF_JUSTICE_STATISTICS_API_KEY: DATA_ANALYSIS_TOOLS_BUREAU_OF_JUSTICE_STATISTICS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bjs-nibrs-nibrs
+    baseUri: https://api.ojp.gov/bjsdataset/v1
+    description: BJS NIBRS National Estimates API — NIBRS business capability. Self-contained, no shared references.
+    resources:
+    - name: resource-datasetId}.csv
+      path: /resource/{datasetId}.csv
+      operations:
+      - name: getnibrsdatasetcsv
+        method: GET
+        description: Get NIBRS dataset as CSV
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: datasetId
+          in: path
+          type: string
+          required: true
+    - name: resource-datasetId}.json
+      path: /resource/{datasetId}.json
+      operations:
+      - name: getnibrsdatasetjson
+        method: GET
+        description: Get NIBRS dataset as JSON
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: datasetId
+          in: path
+          type: string
+          required: true
+        - name: $select
+          in: query
+          type: string
+        - name: $where
+          in: query
+          type: string
+        - name: $order
+          in: query
+          type: string
+        - name: $group
+          in: query
+          type: string
+        - name: $limit
+          in: query
+          type: integer
+        - name: $offset
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-App-Token
+      value: '{{env.DATA_ANALYSIS_TOOLS_BUREAU_OF_JUSTICE_STATISTICS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: bjs-nibrs-nibrs-rest
+    port: 8080
+    description: REST adapter for BJS NIBRS National Estimates API — NIBRS. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/resource/datasetid-csv
+      name: resource-datasetid-csv
+      description: REST surface for resource-datasetId}.csv.
+      operations:
+      - method: GET
+        name: getnibrsdatasetcsv
+        description: Get NIBRS dataset as CSV
+        call: bjs-nibrs-nibrs.getnibrsdatasetcsv
+        with:
+          datasetId: rest.datasetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/resource/datasetid-json
+      name: resource-datasetid-json
+      description: REST surface for resource-datasetId}.json.
+      operations:
+      - method: GET
+        name: getnibrsdatasetjson
+        description: Get NIBRS dataset as JSON
+        call: bjs-nibrs-nibrs.getnibrsdatasetjson
+        with:
+          datasetId: rest.datasetId
+          $select: rest.$select
+          $where: rest.$where
+          $order: rest.$order
+          $group: rest.$group
+          $limit: rest.$limit
+          $offset: rest.$offset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bjs-nibrs-nibrs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for BJS NIBRS National Estimates API — NIBRS. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-nibrs-dataset-csv
+      description: Get NIBRS dataset as CSV
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bjs-nibrs-nibrs.getnibrsdatasetcsv
+      with:
+        datasetId: tools.datasetId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-nibrs-dataset-json
+      description: Get NIBRS dataset as JSON
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bjs-nibrs-nibrs.getnibrsdatasetjson
+      with:
+        datasetId: tools.datasetId
+        $select: tools.$select
+        $where: tools.$where
+        $order: tools.$order
+        $group: tools.$group
+        $limit: tools.$limit
+        $offset: tools.$offset
+      outputParameters:
+      - type: object
+        mapping: $.
