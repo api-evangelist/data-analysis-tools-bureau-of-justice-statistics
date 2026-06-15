@@ -1,0 +1,239 @@
+{
+  "item": [
+    {
+      "id": "fe5d74f3-f64e-4523-9358-a45f35cc64a6",
+      "name": "NIBRS",
+      "description": {
+        "content": "NIBRS national-estimates datasets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8782e95-fd7c-4ab1-9661-58275e97943b",
+          "name": "Get NIBRS dataset as JSON",
+          "request": {
+            "name": "Get NIBRS dataset as JSON",
+            "description": {
+              "content": "Returns NIBRS national-estimates rows in JSON format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resource",
+                "{{datasetId}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$where",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$group",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$limit",
+                  "value": "1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "$offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "734072dd-f348-4729-9835-a12b73e9ab02",
+              "name": "Array of dataset rows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resource",
+                    "{{datasetId}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "$offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 7552\n  },\n  {\n    \"key_0\": 7150.372054782167,\n    \"key_1\": 7326.955308863404,\n    \"key_2\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc6ecf67-0b05-4055-abb9-88976d91d26b",
+          "name": "Get NIBRS dataset as CSV",
+          "request": {
+            "name": "Get NIBRS dataset as CSV",
+            "description": {},
+            "url": {
+              "path": [
+                "resource",
+                "{{datasetId}}.csv"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f2e5321-d841-48e8-b808-43c028ca3121",
+              "name": "CSV-formatted rows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resource",
+                    "{{datasetId}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ojp.gov/bjsdataset/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "datasetId"
+    }
+  ],
+  "info": {
+    "_postman_id": "b89dd1ba-ccbc-41ed-a831-dac44d2f1460",
+    "name": "BJS NIBRS National Estimates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The NIBRS National Estimates API exposes selected National Incident-Based Reporting System national-estimates datasets via the Socrata Open Data API. Each dataset is identified by a four-character Socrata resource code and supports JSON and CSV output.\n\nContact Support:\n Name: Bureau of Justice Statistics",
+      "type": "text/plain"
+    }
+  }
+}

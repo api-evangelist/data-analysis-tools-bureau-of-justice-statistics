@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BJS NIBRS National Estimates API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NIBRS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get NIBRS dataset as JSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ojp.gov/bjsdataset/v1/resource/:datasetId.json",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$group",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns NIBRS national-estimates rows in JSON format."
+        },
+        {
+          "info": {
+            "name": "Get NIBRS dataset as CSV",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ojp.gov/bjsdataset/v1/resource/:datasetId.csv",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get NIBRS dataset as CSV"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
