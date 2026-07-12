@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bjs-ncvs-api-openapi.yml, openapi/bjs-nibrs-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: appToken
+  type: apiKey
+  in: header
+  parameter: X-App-Token
+  description: Optional Socrata application token for higher rate limits.
+  sources:
+  - openapi/bjs-ncvs-api-openapi.yml
+  - openapi/bjs-nibrs-api-openapi.yml

@@ -70,6 +70,10 @@ apis:
       - type: JSONSchema
         url: json-schema/bjs-dataset-row.json
 common:
+  - type: DomainSecurity
+    url: security/data-analysis-tools-bureau-of-justice-statistics-domain-security.yml
+  - type: Authentication
+    url: authentication/data-analysis-tools-bureau-of-justice-statistics-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/bureau-of-justice-statistics
   - type: Website
