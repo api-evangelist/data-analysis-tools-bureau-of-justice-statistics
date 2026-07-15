@@ -70,6 +70,8 @@ apis:
       - type: JSONSchema
         url: json-schema/bjs-dataset-row.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/data-analysis-tools-bureau-of-justice-statistics-agentic-access.yml
   - type: DomainSecurity
     url: security/data-analysis-tools-bureau-of-justice-statistics-domain-security.yml
   - type: Authentication
