@@ -3,9 +3,22 @@ name: Bureau of Justice Statistics Data Analysis Tools
 url: >-
   https://raw.githubusercontent.com/api-evangelist/data-analysis-tools-bureau-of-justice-statistics/refs/heads/main/apis.yml
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consuming
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/data-analysis-tools-bureau-of-justice-statistics.png
 tags:
   - Crime Statistics
   - Federal Government
@@ -25,50 +38,56 @@ description: >-
   datasets through Socrata Open Data APIs and offers interactive data analysis tools such as the Justice Expenditure and
   Employment Tool (JEET) and the National Crime Victimization Survey (NCVS) Quick Tables.
 apis:
-  - aid: data-analysis-tools-bureau-of-justice-statistics:ncvs-api
-    name: BJS NCVS API
-    description: >-
-      The National Crime Victimization Survey (NCVS) API exposes selected NCVS datasets via the Socrata Open Data API.
-      Datasets are addressed by four-character resource codes and may be queried with SoQL clauses such as $select,
-      $where, $group, $order, and $limit, returning JSON or CSV.
-    humanURL: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
-    baseURL: https://api.ojp.gov/bjsdataset/v1
-    tags:
-      - Crime Statistics
-      - NCVS
-      - SODA
-      - Victimization
-    properties:
-      - type: Documentation
-        url: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
-      - type: Featured
-        url: https://bjs.ojp.gov/featured/national-crime-victimization-survey-ncvs-application-programming-interface-api
-      - type: OpenAPI
-        url: openapi/bjs-ncvs-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/bjs-dataset-row.json
-      - type: Rules
-        url: rules/bjs-ncvs-api-rules.yml
-      - type: Capabilities
-        url: capabilities/bjs-data-analysis-tools-capabilities.yml
-  - aid: data-analysis-tools-bureau-of-justice-statistics:nibrs-api
-    name: BJS NIBRS National Estimates API
-    description: >-
-      The NIBRS National Estimates API publishes selected National Incident-Based Reporting System national-estimates
-      datasets via the Socrata Open Data API, addressable via four-character resource codes and queryable with SoQL.
-    humanURL: https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
-    baseURL: https://api.ojp.gov/bjsdataset/v1
-    tags:
-      - Crime Statistics
-      - NIBRS
-      - SODA
-    properties:
-      - type: Documentation
-        url: https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
-      - type: OpenAPI
-        url: openapi/bjs-nibrs-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/bjs-dataset-row.json
+- aid: >-
+    data-analysis-tools-bureau-of-justice-statistics:data-analysis-tools-bureau-of-justice-statistics-ncvs-api
+  name: Bureau of Justice Statistics Data Analysis Tools NCVS API
+  description: National Crime Victimization Survey datasets.
+  humanURL: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
+  baseURL: https://api.ojp.gov/bjsdataset/v1
+  tags:
+  - NCVS
+  properties:
+  - type: OpenAPI
+    url: openapi/data-analysis-tools-bureau-of-justice-statistics-ncvs-api-openapi.yml
+  - type: Documentation
+    url: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
+  - type: Featured
+    url: >-
+      https://bjs.ojp.gov/featured/national-crime-victimization-survey-ncvs-application-programming-interface-api
+  - type: JSONSchema
+    url: json-schema/bjs-dataset-row.json
+  - type: Rules
+    url: rules/bjs-ncvs-api-rules.yml
+  - type: Capabilities
+    url: capabilities/bjs-data-analysis-tools-capabilities.yml
+  - type: Documentation
+    url: >-
+      https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
+- aid: >-
+    data-analysis-tools-bureau-of-justice-statistics:data-analysis-tools-bureau-of-justice-statistics-nibrs-api
+  name: Bureau of Justice Statistics Data Analysis Tools NIBRS API
+  description: NIBRS national-estimates datasets.
+  humanURL: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
+  baseURL: https://api.ojp.gov/bjsdataset/v1
+  tags:
+  - NIBRS
+  properties:
+  - type: OpenAPI
+    url: openapi/data-analysis-tools-bureau-of-justice-statistics-nibrs-api-openapi.yml
+  - type: Documentation
+    url: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
+  - type: Featured
+    url: >-
+      https://bjs.ojp.gov/featured/national-crime-victimization-survey-ncvs-application-programming-interface-api
+  - type: JSONSchema
+    url: json-schema/bjs-dataset-row.json
+  - type: Rules
+    url: rules/bjs-ncvs-api-rules.yml
+  - type: Capabilities
+    url: capabilities/bjs-data-analysis-tools-capabilities.yml
+  - type: Documentation
+    url: >-
+      https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
 common:
   - type: AgenticAccess
     url: agentic-access/data-analysis-tools-bureau-of-justice-statistics-agentic-access.yml
