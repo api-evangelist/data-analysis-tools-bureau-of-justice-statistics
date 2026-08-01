@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: BJS NCVS API
+  description: >-
+    The National Crime Victimization Survey (NCVS) API exposes selected NCVS
+    datasets via the Socrata Open Data API (SODA). Each dataset is identified
+    by a four-character resource code and may be requested as JSON or CSV.
+  version: '1.0'
+  contact:
+    name: Bureau of Justice Statistics
+    url: https://bjs.ojp.gov/
+servers:
+  - url: https://api.ojp.gov/bjsdataset/v1
+    description: BJS dataset API base URL
+tags:
+  - name: NCVS
+    description: National Crime Victimization Survey datasets.
+  - name: SODA
+    description: Socrata Open Data API query semantics.
+paths:
+  /resource/{datasetId}.json:
+    get:
+      operationId: getNcvsDatasetJson
+      summary: Get NCVS dataset as JSON
+      description: >-
+        Returns rows of an NCVS dataset in JSON. Datasets are identified by
+        four-character Socrata resource codes such as gcuy-rt5g.
+      tags:
+        - NCVS
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          description: The four-character Socrata dataset identifier.
+          schema:
+            type: string
+            pattern: "^[a-z0-9]{4}-[a-z0-9]{4}$"
+        - name: $select
+          in: query
+          description: SoQL select clause; comma-separated list of columns or aggregations.
+          schema:
+            type: string
+        - name: $where
+          in: query
+          description: SoQL where clause filtering rows.
+          schema:
+            type: string
+        - name: $order
+          in: query
+          description: SoQL order clause.
+          schema:
+            type: string
+        - name: $group
+          in: query
+          description: SoQL group clause.
+          schema:
+            type: string
+        - name: $limit
+          in: query
+          description: Maximum rows to return.
+          schema:
+            type: integer
+            default: 1000
+        - name: $offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: $q
+          in: query
+          description: Full-text search across all string fields.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Array of dataset rows
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /resource/{datasetId}.csv:
+    get:
+      operationId: getNcvsDatasetCsv
+      summary: Get NCVS dataset as CSV
+      description: Returns rows of an NCVS dataset in CSV format.
+      tags:
+        - NCVS
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^[a-z0-9]{4}-[a-z0-9]{4}$"
+        - name: $select
+          in: query
+          schema:
+            type: string
+        - name: $where
+          in: query
+          schema:
+            type: string
+        - name: $limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: CSV-formatted rows
+          content:
+            text/csv:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    appToken:
+      type: apiKey
+      in: header
+      name: X-App-Token
+      description: Optional Socrata application token for higher rate limits.

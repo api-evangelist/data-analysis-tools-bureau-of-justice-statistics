@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: BJS NIBRS National Estimates API
+  description: >-
+    The NIBRS National Estimates API exposes selected National Incident-Based
+    Reporting System national-estimates datasets via the Socrata Open Data
+    API. Each dataset is identified by a four-character Socrata resource code
+    and supports JSON and CSV output.
+  version: '1.0'
+  contact:
+    name: Bureau of Justice Statistics
+    url: https://bjs.ojp.gov/
+servers:
+  - url: https://api.ojp.gov/bjsdataset/v1
+    description: BJS dataset API base URL
+tags:
+  - name: NIBRS
+    description: NIBRS national-estimates datasets.
+paths:
+  /resource/{datasetId}.json:
+    get:
+      operationId: getNibrsDatasetJson
+      summary: Get NIBRS dataset as JSON
+      description: Returns NIBRS national-estimates rows in JSON format.
+      tags:
+        - NIBRS
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^[a-z0-9]{4}-[a-z0-9]{4}$"
+        - name: $select
+          in: query
+          schema:
+            type: string
+        - name: $where
+          in: query
+          schema:
+            type: string
+        - name: $order
+          in: query
+          schema:
+            type: string
+        - name: $group
+          in: query
+          schema:
+            type: string
+        - name: $limit
+          in: query
+          schema:
+            type: integer
+            default: 1000
+        - name: $offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Array of dataset rows
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /resource/{datasetId}.csv:
+    get:
+      operationId: getNibrsDatasetCsv
+      summary: Get NIBRS dataset as CSV
+      tags:
+        - NIBRS
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^[a-z0-9]{4}-[a-z0-9]{4}$"
+      responses:
+        '200':
+          description: CSV-formatted rows
+          content:
+            text/csv:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    appToken:
+      type: apiKey
+      in: header
+      name: X-App-Token

@@ -1,0 +1,16 @@
+{
+  "provider": "data-analysis-tools-bureau-of-justice-statistics",
+  "sources": [
+    "data-analysis-tools-bureau-of-justice-statistics-ncvs-api-openapi.yml",
+    "data-analysis-tools-bureau-of-justice-statistics-nibrs-api-openapi.yml"
+  ],
+  "outputs": [
+    "data-analysis-tools-bureau-of-justice-statistics-ncvs-api-openapi.yml",
+    "data-analysis-tools-bureau-of-justice-statistics-nibrs-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
