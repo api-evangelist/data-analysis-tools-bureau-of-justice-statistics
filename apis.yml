@@ -58,8 +58,6 @@ apis:
     url: json-schema/bjs-dataset-row.json
   - type: Rules
     url: rules/bjs-ncvs-api-rules.yml
-  - type: Capabilities
-    url: capabilities/bjs-data-analysis-tools-capabilities.yml
   - type: Documentation
     url: >-
       https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
@@ -83,8 +81,6 @@ apis:
     url: json-schema/bjs-dataset-row.json
   - type: Rules
     url: rules/bjs-ncvs-api-rules.yml
-  - type: Capabilities
-    url: capabilities/bjs-data-analysis-tools-capabilities.yml
   - type: Documentation
     url: >-
       https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
