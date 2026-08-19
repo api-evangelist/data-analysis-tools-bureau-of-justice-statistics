@@ -30,7 +30,7 @@ tags:
   - Victimization
 created: '2024-11-30'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 kind: government
 description: >-
   The Bureau of Justice Statistics (BJS) is the agency within the U.S. Department of Justice responsible for collecting,
