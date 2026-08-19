@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BJS NCVS API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NCVS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get NCVS dataset as JSON",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ojp.gov/bjsdataset/v1/resource/:datasetId.json",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "The four-character Socrata dataset identifier."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "SoQL select clause; comma-separated list of columns or aggregations."
+              },
+              {
+                "name": "$where",
+                "value": "",
+                "type": "query",
+                "description": "SoQL where clause filtering rows."
+              },
+              {
+                "name": "$order",
+                "value": "",
+                "type": "query",
+                "description": "SoQL order clause."
+              },
+              {
+                "name": "$group",
+                "value": "",
+                "type": "query",
+                "description": "SoQL group clause."
+              },
+              {
+                "name": "$limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum rows to return."
+              },
+              {
+                "name": "$offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$q",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search across all string fields."
+              }
+            ]
+          },
+          "docs": "Returns rows of an NCVS dataset in JSON. Datasets are identified by four-character Socrata resource codes such as gcuy-rt5g."
+        },
+        {
+          "info": {
+            "name": "Get NCVS dataset as CSV",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ojp.gov/bjsdataset/v1/resource/:datasetId.csv",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$where",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns rows of an NCVS dataset in CSV format."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

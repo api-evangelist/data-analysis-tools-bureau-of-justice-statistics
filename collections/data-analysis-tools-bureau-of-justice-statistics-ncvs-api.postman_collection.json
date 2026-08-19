@@ -1,0 +1,286 @@
+{
+  "item": [
+    {
+      "id": "a45fa029-6de6-4af9-bddd-fa5ba2ac1d62",
+      "name": "NCVS",
+      "description": {
+        "content": "National Crime Victimization Survey datasets.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d74f3f16-7a66-47da-8f12-913fc9163fe1",
+          "name": "Get NCVS dataset as JSON",
+          "request": {
+            "name": "Get NCVS dataset as JSON",
+            "description": {
+              "content": "Returns rows of an NCVS dataset in JSON. Datasets are identified by four-character Socrata resource codes such as gcuy-rt5g.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resource",
+                "{{datasetId}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "SoQL select clause; comma-separated list of columns or aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "$where",
+                  "value": "<string>",
+                  "description": "SoQL where clause filtering rows."
+                },
+                {
+                  "disabled": false,
+                  "key": "$order",
+                  "value": "<string>",
+                  "description": "SoQL order clause."
+                },
+                {
+                  "disabled": false,
+                  "key": "$group",
+                  "value": "<string>",
+                  "description": "SoQL group clause."
+                },
+                {
+                  "disabled": false,
+                  "key": "$limit",
+                  "value": "1000",
+                  "description": "Maximum rows to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "$q",
+                  "value": "<string>",
+                  "description": "Full-text search across all string fields."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba046bd1-f1be-45b4-b0fe-8cfeadd847eb",
+              "name": "Array of dataset rows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resource",
+                    "{{datasetId}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "$offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "$q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": \"string\",\n    \"key_1\": 2081,\n    \"key_2\": \"string\"\n  },\n  {\n    \"key_0\": true,\n    \"key_1\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a879f790-c8dd-4817-814a-115992a44858",
+          "name": "Get NCVS dataset as CSV",
+          "request": {
+            "name": "Get NCVS dataset as CSV",
+            "description": {
+              "content": "Returns rows of an NCVS dataset in CSV format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resource",
+                "{{datasetId}}.csv"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$where",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b01d9538-58dc-46bb-9de6-28d1bc648ade",
+              "name": "CSV-formatted rows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resource",
+                    "{{datasetId}}.csv"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ojp.gov/bjsdataset/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The four-character Socrata dataset identifier.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "datasetId"
+    }
+  ],
+  "info": {
+    "_postman_id": "baed4691-be89-4e33-8f55-98ac21b4d7b8",
+    "name": "BJS NCVS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The National Crime Victimization Survey (NCVS) API exposes selected NCVS datasets via the Socrata Open Data API (SODA). Each dataset is identified by a four-character resource code and may be requested as JSON or CSV.\n\nContact Support:\n Name: Bureau of Justice Statistics",
+      "type": "text/plain"
+    }
+  }
+}
