@@ -82,29 +82,6 @@ apis:
   - type: Documentation
     url: >-
       https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
-- aid: >-
-    data-analysis-tools-bureau-of-justice-statistics:data-analysis-tools-bureau-of-justice-statistics-nibrs-api
-  name: Bureau of Justice Statistics Data Analysis Tools NIBRS API
-  description: NIBRS national-estimates datasets.
-  humanURL: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
-  baseURL: https://api.ojp.gov/bjsdataset/v1
-  tags:
-  - NIBRS
-  properties:
-  - type: OpenAPI
-    url: openapi/data-analysis-tools-bureau-of-justice-statistics-nibrs-api-openapi.yml
-  - type: Documentation
-    url: https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api
-  - type: Featured
-    url: >-
-      https://bjs.ojp.gov/featured/national-crime-victimization-survey-ncvs-application-programming-interface-api
-  - type: JSONSchema
-    url: json-schema/bjs-dataset-row.json
-  - type: Rules
-    url: rules/bjs-ncvs-api-rules.yml
-  - type: Documentation
-    url: >-
-      https://bjs.ojp.gov/national-incident-based-reporting-system-nibrs-national-estimates-api
 common:
   - type: AgenticAccess
     url: agentic-access/data-analysis-tools-bureau-of-justice-statistics-agentic-access.yml
