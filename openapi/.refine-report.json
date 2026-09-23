@@ -1,16 +1,22 @@
 {
   "provider": "data-analysis-tools-bureau-of-justice-statistics",
   "sources": [
-    "data-analysis-tools-bureau-of-justice-statistics-ncvs-api-openapi.yml",
-    "data-analysis-tools-bureau-of-justice-statistics-nibrs-api-openapi.yml"
+    "_original/bjs-ncvs-api-openapi.yml"
   ],
   "outputs": [
-    "data-analysis-tools-bureau-of-justice-statistics-ncvs-api-openapi.yml",
-    "data-analysis-tools-bureau-of-justice-statistics-nibrs-api-openapi.yml"
+    "data-analysis-tools-bureau-of-justice-statistics-ncvs-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bjs-ncvs-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/bjs-nibrs-api-openapi.yml: archived document superseded by a larger archived document",
+    "data-analysis-tools-bureau-of-justice-statistics-ncvs-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

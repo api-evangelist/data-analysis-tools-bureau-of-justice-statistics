@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: BJS NCVS API
   description: The National Crime Victimization Survey (NCVS) API exposes selected NCVS datasets via the Socrata Open Data API (SODA). Each dataset is identified by a four-character resource code and may be requested as JSON or CSV.
